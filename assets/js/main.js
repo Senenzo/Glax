@@ -206,12 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-
-var carousel = new bootstrap.Carousel(document.getElementById('clientCarousel'), {
-  interval: 2000, // Set the interval for automatic sliding (in milliseconds)
-  wrap: true      // Enable looping of carousel items
-});
-
 // jQuery is required for this script
 $(document).ready(function () {
   // Mobile dropdown behavior

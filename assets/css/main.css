@@ -1488,12 +1488,12 @@ section {
 }
 
 @media (max-width: 575px) {
-
-  .project-details .swiper-button-prev,
-  .project-details .swiper-button-next {
+  .project-details .image-slider-prev,
+  .project-details .image-slider-next {
     display: none;
   }
 }
+
 
 .project-details .portfolio-info h3 {
   font-size: 22px;
@@ -1611,6 +1611,126 @@ section {
   margin: 0 0 15px 0 0 0;
   padding: 0;
 }
+
+/* Apply the same styling to the new tabs as the original tabs */
+.project-details .nav-tabs {
+  border: 0;
+  margin-bottom: 20px;
+}
+
+.project-details .tab-content {
+  margin-top: 20px; /* Add margin at the top of the tab content */
+}
+
+.project-details .nav-link {
+  padding: 15px 0;
+  transition: 0.3s;
+  color: var(--color-secondary);
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 100%;
+  border: 0;
+  border-bottom: 4px solid #e2e4e6;
+}
+
+.project-details .nav-link i {
+  padding-right: 15px;
+  font-size: 48px;
+}
+
+.project-details .nav-link h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+@media (max-width: 575px) {
+  .project-details .nav-link h4 {
+    font-size: 16px;
+  }
+}
+
+.project-details .nav-link:hover {
+  color: var(--color-primary);
+}
+
+.project-details .nav-link.active {
+  color: var(--color-primary);
+  background-color: transparent;
+  border-color: var(--color-primary);
+}
+
+
+/* Style the carousel controls (previous and next arrows) */
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: transparent; /* Remove background color */
+  border: none;
+  font-size: 30px;
+  color: #000; /* Arrow color */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-control-prev {
+  left: -60px;
+}
+
+.carousel-control-next {
+  right: -60px;
+}
+
+/* Style the carousel controls (previous and next arrows) */
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: transparent; /* Remove background color */
+  border: none;
+  font-size: 30px;
+  color: #000; /* Arrow color */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-control-prev {
+  left: -60px;
+}
+
+.carousel-control-next {
+  right: -60px;
+}
+
+@media (max-width: 575px) {
+  .project-details .carousel-control-prev,
+  .project-details .carousel-control-next {
+    display: block;
+    position: relative;
+    top: auto;
+    left: 30%; /* Center the arrows horizontally */
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  .spacing{
+    margin-bottom: 60px;
+    margin-top: 20px;
+  }
+
+  .carousel-control-prev {
+    left: 0; /* Adjust left positioning for the previous arrow */
+    margin-left: -80px; /* Add margin to create space between arrows */
+  }
+  
+  .carousel-control-next {
+    right: 0; /* Adjust right positioning for the next arrow */
+    margin-right: -80px; /* Add margin to create space between arrows */
+  }
+  
+}
+
 
 /*--------------------------------------------------------------
 # Service Details Section
@@ -2491,115 +2611,49 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Blog Comments
+# Department Tree
 --------------------------------------------------------------*/
-.blog .comments {
-  margin-top: 30px;
+
+/* Add this CSS for centering the frame and image */
+.custom-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* This will center the frame vertically in the viewport */
+  overflow: hidden; /* Ensure that the image is not displayed outside the container */
 }
 
-.blog .comments .comments-count {
-  font-weight: bold;
-}
-
-.blog .comments .comment {
-  margin-top: 30px;
+.framed-image {
+  width: auto;
+  height: auto;
+  border: 30px solid grey;
+  box-shadow: 10px 10px 20px black;
+  overflow: hidden;
   position: relative;
 }
 
-.blog .comments .comment .comment-img {
-  margin-right: 14px;
+/* .framed-image img{
+  transition: transform 1.5s;
 }
 
-.blog .comments .comment .comment-img img {
-  width: 60px;
+
+.framed-image img:hover {
+  transform: scale(1.2); 
+} */
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+  .framed-image {
+      width: 80%; /* Adjust the width as needed for smaller screens */
+      margin: 0 auto; /* Center the framed image horizontally */
+  }
 }
 
-.blog .comments .comment h5 {
-  font-size: 16px;
-  margin-bottom: 2px;
-}
-
-.blog .comments .comment h5 a {
-  font-weight: bold;
-  color: var(--color-default);
-  transition: 0.3s;
-}
-
-.blog .comments .comment h5 a:hover {
-  color: var(--color-primary);
-}
-
-.blog .comments .comment h5 .reply {
-  padding-left: 10px;
-  color: var(--color-secondary);
-}
-
-.blog .comments .comment h5 .reply i {
-  font-size: 20px;
-}
-
-.blog .comments .comment time {
-  display: block;
-  font-size: 14px;
-  color: rgba(82, 86, 94, 0.8);
-  margin-bottom: 5px;
-}
-
-.blog .comments .comment.comment-reply {
-  padding-left: 40px;
-}
-
-.blog .comments .reply-form {
-  margin-top: 30px;
-  padding: 30px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-}
-
-.blog .comments .reply-form h4 {
-  font-weight: bold;
-  font-size: 22px;
-}
-
-.blog .comments .reply-form p {
-  font-size: 14px;
-}
-
-.blog .comments .reply-form input {
-  border-radius: 4px;
-  padding: 10px 10px;
-  font-size: 14px;
-}
-
-.blog .comments .reply-form input:focus {
-  box-shadow: none;
-  border-color: rgba(254, 185, 0, 0.8);
-}
-
-.blog .comments .reply-form textarea {
-  border-radius: 4px;
-  padding: 10px 10px;
-  font-size: 14px;
-}
-
-.blog .comments .reply-form textarea:focus {
-  box-shadow: none;
-  border-color: rgba(254, 185, 0, 0.8);
-}
-
-.blog .comments .reply-form .form-group {
-  margin-bottom: 25px;
-}
-
-.blog .comments .reply-form .btn-primary {
-  border-radius: 4px;
-  padding: 10px 20px;
-  border: 0;
-  background-color: var(--color-secondary);
-}
-
-.blog .comments .reply-form .btn-primary:hover {
-  color: var(--color-secondary);
-  background-color: var(--color-primary);
+/* Media query for screens smaller than 576px */
+@media (max-width: 576px) {
+  .framed-image {
+      border-width: 20px; /* Reduce the border size for very small screens */
+  }
 }
 
 /*--------------------------------------------------------------
